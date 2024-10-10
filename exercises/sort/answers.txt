@@ -1,0 +1,11 @@
+sort1 uses: Bubble
+
+How do you know?: 
+
+sort2 uses: Merge
+
+How do you know?: At worst case scenario, sort2 performs the best. At the worst case scenario, merge sort scales via n(log(n)), which results in far less steps than that of bubble and selection sort at n^2
+
+sort3 uses: Selection
+
+How do you know?: From testing all sorting algorithms with the best case scenario (sorted50000.txt), the algorithm sort3 performs the worst.

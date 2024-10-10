@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                var answer_1 = 'option_1';
+                var answer_2 = 'south east asia';
+
+                document.getElementById('option_1').addEventListener('click', function() {
+                    check_answer('option_1');
+                });
+                document.getElementById('option_2').addEventListener('click', function() {
+                    check_answer('option_2');
+                });
+                document.getElementById('option_3').addEventListener('click', function() {
+                    check_answer('option_3');
+                });
+                document.getElementById('option_4').addEventListener('click', function() {
+                    check_answer('option_4');
+                });
+
+                function check_answer(option) {
+                    let option_body = document.getElementById(option);
+                    let result = document.getElementById('result_1');
+                    if (option == answer_1) {
+                        option_body.style.backgroundColor = 'green';
+                        result.textContent = 'Correct!';
+                    }
+                    else {
+                        option_body.style.backgroundColor = 'red';
+                        result.textContent = 'Incorrect';
+                    }
+                }
+
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    let answer = document.querySelector('#f1_answer').value.toLowerCase();
+                    let input_field = document.getElementById('f1_answer');
+                    let result = document.getElementById('result_2');
+                    if (answer == answer_2) {
+                        input_field.style.backgroundColor = 'Green';
+                        result.textContent = 'Correct!';
+                    }
+                    else {
+                        input_field.style.backgroundColor = 'Red';
+                        result.textContent = 'Incorrect';
+                    }
+                    event.preventDefault();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                    <h3>What is the speed of sound? (m/s)</h3>
+                        <p id="result_1"></p>
+                        <button id="option_1">343 m/s</button>
+                        <button id="option_2">231 m/s</button>
+                        <button id="option_3">784 m/s</button>
+                        <button id="option_4">121 m/s</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                    <h3>What region is Singapore from? </h3>
+                        <p id="result_2"></p>
+                        <form>
+                            <input autocomplete="off" autofocus id="f1_answer" placeholder="Answer" type="text">
+                            <button id="f1_submit">Check</button>
+                        </form>
+
+            </div>
+        </div>
+    </body>
+</html>
